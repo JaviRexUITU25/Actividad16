@@ -44,15 +44,15 @@ def mostrar_lista():
 def remove_book():
     try:
         eliminado = input("Ingrese el nombre del libro a eliminar: ").upper()
-        eliminado = False
-        if eliminado not in books:
+        encontrado = False
+        for bookeli in books:
+            if bookeli.titulo.lower() == eliminado.lower():
+                books.remove(bookeli)
+                print("Libro eliminado")
+                encontrado = True
+                break
+        if not encontrado:
             print("Libro no encontrado")
-        else:
-            for book in books:
-                if book.show_book.lower() == eliminado:
-                    books.remove(book)
-                    print("Libro eliminado")
-                    eliminado = True
     except ValueError:
         print("Ingrese un valor valido")
     except TypeError:
@@ -63,7 +63,7 @@ while True:
     print("-"*10 + "Bienvenido al registro de Libros"+ "-"*10 + "\n"
         "1. Registrar Libros.\n"
         "2. Mostrar libros.\n"
-        "3.Eliminar libro por nombre.\n"
+        "3. Eliminar libro por nombre.\n"
         "4. Salir del programa")
     user_op = input("Ingrese la opcion que desea ingresar: ")
     match user_op:
@@ -72,7 +72,7 @@ while True:
         case "2":
             mostrar_lista()
         case "3":
-            credits()
+            remove_book()
         case "4":
             print("¡Gracias por usar el programa!")
             break
