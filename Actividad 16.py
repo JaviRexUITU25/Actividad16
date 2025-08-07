@@ -31,3 +31,16 @@ def mostrar_lista():
             print(f"{i}.", end= "")
             book.show_book()
         print()
+
+def remove_book():
+    try:
+        eliminado = input("Ingrese el nombre del libro a eliminar: ").upper()
+        eliminado = False
+        if eliminado not in books:
+            print("Libro no encontrado")
+        else:
+            for book in books:
+                if book.show_book.lower() == eliminado:
+                    books.remove(book)
+                    print("Libro eliminado")
+                    eliminado = True
