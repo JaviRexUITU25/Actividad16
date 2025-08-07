@@ -44,3 +44,27 @@ def remove_book():
                     books.remove(book)
                     print("Libro eliminado")
                     eliminado = True
+    except ValueError:
+        print("Ingrese un valor valido")
+    except TypeError:
+        print("Ingrese un tipo de valor valido")
+    except Exception as e:
+        print("Un error inesperado ha ocurrido")
+while True:
+    print("-"*10 + "Bienvenido al registro de Libros"+ "-"*10 + "\n"
+        "1. Registrar Libros."
+        "2. Mostrar libros."
+        "3.Eliminar libro por nombre."
+        "4. Salir del programa")
+    user_op = input("Ingrese la opcion que desea ingresar: ")
+    match user_op:
+        case "1":
+            add_libro()
+        case "2":
+            mostrar_lista()
+        case "3":
+            credits()
+        case "4":
+            break
+        case _:
+            print("Ingrese un dato valido")
